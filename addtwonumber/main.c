@@ -24,41 +24,41 @@ struct ListNode {
 };
 
 struct ListNode *addTwoNumber(struct ListNode *l1, struct ListNode *l2) {
-  struct ListNode *head = NULL;
-  struct ListNode *current = NULL;
+  sstruct ListNode *head = NULL;
+    struct ListNode *current = NULL;
 
-  int carry = 0;
+    int carry = 0;
 
-  while (l1 != NULL || l2 != NULL || carry != 0) {
+    while (l1 != NULL || l2 != NULL || carry != 0)
+    {
 
-    int a = (l1 != NULL) ? l1->val : 0;
-    int b = (l2 != NULL) ? l2->val : 0;
+        int a = (l1 != NULL) ? l1->val : 0;
+        int b = (l2 != NULL) ? l2->val : 0;
 
-    int sum = a + b + carry;
+        int sum = a + b + carry;
 
-    struct ListNode *newNode = malloc(sizeof(struct ListNode));
+        struct ListNode *newNode = malloc(sizeof(struct ListNode));
 
-    newNode->val = sum % 10;
-    newNode->nextNode = NULL;
+        newNode->val = sum % 10;
+        newNode->nextNode = NULL;
 
-    carry = sum / 10;
+        carry = sum / 10;
+        if (head == NULL)
+        {
+            head = newNode;
+        }else{
+            current->nextNode = newNode;
+        }
 
-    if (head == NULL) {
-      head = newNode;
-      current = newNode;
-    } else {
-      current->nextNode = newNode;
-      current = newNode;
+        current = newNode;
+
+        if (l1 != NULL)
+            l1 = l1->nextNode;
+
+        if (l2 != NULL)
+            l2 = l2->nextNode;
     }
-
-    if (l1 != NULL)
-      l1 = l1->nextNode;
-
-    if (l2 != NULL)
-      l2 = l2->nextNode;
-  }
-
-  return head;
+    return head;
 }
 int main() {
   struct ListNode *node_l1_1 = malloc(sizeof(struct ListNode));
