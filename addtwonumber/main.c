@@ -85,7 +85,7 @@ int main() {
   node_l2_3->val = 4;
   node_l2_3->nextNode = NULL;
   struct ListNode *result = addTwoNumber(node_l1_1, node_l2_1);
-  while (result->nextNode != NULL) {
+  while (result != NULL) {
     printf("result is %d\n", result->val);
   }
 }
